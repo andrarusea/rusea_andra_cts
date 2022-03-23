@@ -7,23 +7,26 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AngajatiReader extends AplicantReader {
+	public AngajatiReader(String file) {
+		super(file);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
-	public List<Aplicant> readAplicanti(String file) throws FileNotFoundException {
-		Scanner input2 = new Scanner(new File(file));
-		input2.useDelimiter(",");
+	public List<Aplicant> readAplicanti() throws FileNotFoundException {
+		scanner.useDelimiter(",");
 		List<Aplicant> angajati = new ArrayList<Aplicant>();
 
-		while (input2.hasNext()) {
+		while (scanner.hasNext()) {
 			Angajat angajat = new Angajat();
-			readAplicant(input2, angajat);
-			int salariu = input2.nextInt();
+			readAplicant(scanner, angajat);
+			int salariu = scanner.nextInt();
 			angajat.setSalariu(salariu);
-			String ocupatie = input2.next();
+			String ocupatie = scanner.next();
 			angajat.setOcupatie(ocupatie);
 			angajati.add(angajat);
 		}
-		input2.close();
+		scanner.close();
 		return angajati;
 	}
 

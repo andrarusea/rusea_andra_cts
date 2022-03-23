@@ -22,22 +22,22 @@ public class Elev extends Aplicant {
 		this.tutore = tutore;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "Elev: Nume=" + nume + ", Prenume=" + prenume + ", Varsta=" + varsta + ", Punctaj=" + punctaj
-				+ ", Nr_proiecte=" + nr_proiecte + ", DenumireProiect=" + Arrays.toString(denumireProiect) + "Clasa="
-				+ clasa + ", Tutore=" + tutore;
+		StringBuilder builder = new StringBuilder();
+		builder.append("Elev ");
+		builder.append(super.toString());
+		builder.append(", clasa=");
+		builder.append(clasa);
+		builder.append(", tutore=");
+		builder.append(tutore);
+		builder.append("]");
+		return builder.toString();
 	}
 
 	public Elev() {
 		super();
 	}
-
-	public Elev(String nume, String prenume, int varsta, int punctaj, int nr_proiecte, String[] denumireProiect,
-			int clasa, String tutore) {
-		super(nume, prenume, varsta, punctaj, nr_proiecte, denumireProiect);
-		this.clasa = clasa;
-		this.tutore = tutore;
-	}
-
 }

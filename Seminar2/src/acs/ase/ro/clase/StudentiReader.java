@@ -8,22 +8,26 @@ import java.util.Scanner;
 
 public class StudentiReader extends AplicantReader{
 
+	public StudentiReader(String file) {
+		super(file);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
-	public List<Aplicant> readAplicanti(String file) throws FileNotFoundException {
-		Scanner input = new Scanner(new File(file));
-		input.useDelimiter(",|\n");
+	public List<Aplicant> readAplicanti() throws FileNotFoundException {
+		scanner.useDelimiter(",|\n");
 		List<Aplicant> studenti = new ArrayList<Aplicant>();
 
-		while (input.hasNext()) {
+		while (scanner.hasNext()) {
 			Student student = new Student();
-			readAplicant(input, student);
-			int an_studii = input.nextInt();
+			readAplicant(scanner, student);
+			int an_studii = scanner.nextInt();
 			student.setAn_studii(an_studii);
-			String facultate = (input.next()).toString();
+			String facultate = (scanner.next()).toString();
 			student.setFacultate(facultate);
 			studenti.add(student);
 		}
-		input.close();
+		scanner.close();
 		return studenti;
 	}
 

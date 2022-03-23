@@ -1,13 +1,15 @@
 package acs.ase.ro.clase;
 
+import java.util.Arrays;
+
 public abstract class Aplicant {
 	public static int pragPunctaj = 80;
 
 	protected String nume;
 	protected String prenume;
-	protected int varsta;
-	protected int punctaj;
-	protected int nr_proiecte;
+	protected Integer varsta;
+	protected Integer punctaj;
+	protected Integer nrProiecte;
 	protected String[] denumireProiect;
 
 	public String getNume() {
@@ -26,15 +28,11 @@ public abstract class Aplicant {
 		this.prenume = prenume;
 	}
 
-	public int getVarsta() {
-		return varsta;
-	}
-
-	public void setVarsta(int varsta) {
+	public void setVarsta(Integer varsta) {
 		this.varsta = varsta;
 	}
 
-	public static void setPragPunctaj(int pragPunctaj) {
+	public static void setPragPunctaj(Integer pragPunctaj) {
 		Aplicant.pragPunctaj = pragPunctaj;
 	}
 
@@ -43,11 +41,7 @@ public abstract class Aplicant {
 				"Aplicantul " + nume + " " + prenume + (punctaj >= pragPunctaj ? " " : " nu ") + "a fost acceptat.");
 	}
 
-	public int getPunctaj() {
-		return punctaj;
-	}
-
-	public void setPunctaj(int punctaj) {
+	public void setPunctaj(Integer punctaj) {
 		this.punctaj = punctaj;
 	}
 
@@ -56,31 +50,47 @@ public abstract class Aplicant {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Aplicant(String nume, String prenume, int varsta, int punctaj, int nr_proiecte, String[] denumireProiect) {
+	public Aplicant(String nume, String prenume, Integer varsta, Integer punctaj, Integer nrProiecte, String[] denumireProiect) {
 		super();
 		this.nume = nume;
 		this.prenume = prenume;
 		this.varsta = varsta;
 		this.punctaj = punctaj;
-		this.nr_proiecte = nr_proiecte;
+		this.nrProiecte = nrProiecte;
 		this.denumireProiect = denumireProiect;
 	}
 
-	public int getNr_proiecte() {
-		return nr_proiecte;
-	}
-
-	public void setDenumiriProiecte(int nrProiecte, String[] denumiri) {
-		this.nr_proiecte = nrProiecte;
-		this.denumireProiect = new String[this.nr_proiecte];
-		for (int i = 0; i < this.nr_proiecte; i++) {
+	public void setDenumiriProiecte(Integer nrProiecte, String[] denumiri) {
+		this.nrProiecte = nrProiecte;
+		this.denumireProiect = new String[this.nrProiecte];
+		for (int i = 0; i < this.nrProiecte; i++) {
 			this.denumireProiect[i] = denumiri[i];
 		}
 	}
 
-	public void afiseazaFinantarePeZi(int sumaPeZi) {
+	public void afiseazaFinantarePeZi(Integer sumaPeZi) {
 		System.out.println(
 				"Aplicantul " + getNume() + " " + getPrenume() + " primeste " + sumaPeZi + " Euro/zi in proiect.");
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("[nume=");
+		builder.append(nume);
+		builder.append(", prenume=");
+		builder.append(prenume);
+		builder.append(", varsta=");
+		builder.append(varsta);
+		builder.append(", punctaj=");
+		builder.append(punctaj);
+		builder.append(", nrProiecte=");
+		builder.append(nrProiecte);
+		builder.append(", denumireProiect=");
+		builder.append(Arrays.toString(denumireProiect));
+		return builder.toString();
+	}
+	
+	
 
 }
