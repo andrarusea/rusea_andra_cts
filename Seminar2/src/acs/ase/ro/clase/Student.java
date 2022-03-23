@@ -15,7 +15,7 @@ public class Student extends Aplicant {
 	public int getAn_studii() {
 		return anStudii;
 	}
-	public void setAn_studii(int anStudii) {
+	public void setAnStudii(int anStudii) {
 		this.anStudii = anStudii;
 	}
 
